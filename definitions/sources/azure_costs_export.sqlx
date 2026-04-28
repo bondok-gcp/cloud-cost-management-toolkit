@@ -25,7 +25,6 @@ config {
 
 SELECT
     *
-FROM `dinhgcplab.Azure.sample_cost`
-    -- `${dataform.projectConfig.vars.raw_billing_project}.${dataform.projectConfig.vars.raw_azure_dataset}.${dataform.projectConfig.vars.raw_azure_table_name}`
+FROM `${dataform.projectConfig.vars.raw_billing_project}.${dataform.projectConfig.vars.raw_azure_dataset}.${dataform.projectConfig.vars.raw_azure_table_name}`
 -- TODO: update hardcoded value to relative date calc (rolling 5 quarters)
 --WHERE TIMESTAMP_TRUNC(_PARTITIONTIME, DAY) >= '2024-08-01'

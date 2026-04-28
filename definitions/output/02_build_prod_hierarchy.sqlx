@@ -53,11 +53,11 @@ SkuUnique AS (
   -- This CTE collapses multiple rows for the same SKU into one, preferring non-null values
   SELECT
     sku_id,
-    MAX(sku_description) AS raw_sku_description,
-    MAX(service_description) AS service_description,
-    MAX(machine_spec) AS machine_spec,
-    MAX(cores) AS cores,
-    MAX(memory) AS memory
+    any_value(sku_description) AS raw_sku_description,
+    any_value(service_description) AS service_description,
+    any_value(machine_spec) AS machine_spec,
+    any_value(cores) AS cores,
+    any_value(memory) AS memory
   FROM BillingDataWithMachineSpec
   GROUP BY sku_id
 ),
